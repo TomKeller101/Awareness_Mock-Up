@@ -4,135 +4,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Awareness-Konzept</title>
+  <title>Awareness-Konzept Tool</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      padding: 2rem;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1a4ecc, #4d7eff);
+      color: white;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-    }
-    .container {
-      background: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      max-width: 420px;
-      width: 100%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      height: 100vh;
+      text-align: center;
     }
     h1 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      color: #1a1a1a;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
-    label {
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    a.button {
+      background-color: white;
+      color: #1a4ecc;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
       font-weight: bold;
-      display: block;
-      margin-top: 1rem;
+      transition: background 0.3s ease;
     }
-    select, input {
-      width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.5rem;
-      border-radius: 0.4rem;
-      border: 1px solid #ccc;
+    a.button:hover {
+      background-color: #f0f0f0;
     }
-    button {
-      margin-top: 2rem;
-      width: 100%;
-      background-color: #1a4ecc;
-      color: white;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #163aa6;
-    }
-    .output {
-      margin-top: 2rem;
-      background: #eef1f7;
-      padding: 1rem;
-      border-radius: 0.5rem;
-    }
-    ul {
-      padding-left: 1.2rem;
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.85rem;
+      color: #d1e0ff;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Awareness-Konzept</h1>
-
-    <label for="groesse">Veranstaltungsgröße</label>
-    <input id="groesse" type="number" placeholder="z. B. 200" />
-
-    <label for="zielgruppe">Zielgruppenprofil</label>
-    <select id="zielgruppe">
-      <option>FLINTA*</option>
-      <option>BIPoC</option>
-      <option>Gemischt</option>
-    </select>
-
-    <label for="raum">Raumstruktur</label>
-    <select id="raum">
-      <option>Indoor</option>
-      <option>Outdoor</option>
-      <option>Indoor, Rückzugsräume</option>
-    </select>
-
-    <label for="dauer">Veranstaltungsdauer</label>
-    <select id="dauer">
-      <option>2 Stunden</option>
-      <option>4 Stunden</option>
-      <option>8 Stunden</option>
-      <option>1 Tag</option>
-    </select>
-
-    <label for="alkohol">Alkoholausschank</label>
-    <select id="alkohol">
-      <option>Ja</option>
-      <option>Nein</option>
-    </select>
-
-    <button onclick="absenden()">Senden</button>
-
-    <div id="output" class="output" style="display:none;"></div>
-  </div>
-
-  <script>
-    function absenden() {
-      const groesse = parseInt(document.getElementById("groesse").value);
-      const zielgruppe = document.getElementById("zielgruppe").value;
-      const raum = document.getElementById("raum").value;
-      const dauer = document.getElementById("dauer").value;
-      const alkohol = document.getElementById("alkohol").value;
-
-      let mitglieder = groesse > 300 ? "mind. 4 Personen" : "2-3 Personen";
-      let quali = zielgruppe.includes("FLINTA") || zielgruppe.includes("BIPoC") 
-                  ? "Intersektionale Awareness-Schulung" 
-                  : "Grundlagenschulung Awareness";
-      let standort = raum.includes("Rückzugsräume") ? "Rückzugsraum betreut + mobil im Raum" : "Mobil im Raum";
-      let kontakt = alkohol === "Ja" ? "Telefonnummer + QR-Code sichtbar" : "QR-Code ausreichend";
-      let kooperation = "Abstimmung mit Sicherheitsgewerken nötig";
-
-      const ausgabe = `
-        <strong>Empfohlene Awareness-Maßnahmen:</strong><br/>
-        <ul>
-          <li><strong>Anzahl Team-Mitglieder:</strong> ${mitglieder}</li>
-          <li><strong>Qualifikation:</strong> ${quali}</li>
-          <li><strong>Standort:</strong> ${standort}</li>
-          <li><strong>Kontaktstruktur:</strong> ${kontakt}</li>
-          <li><strong>Kooperation:</strong> ${kooperation}</li>
-        </ul>
-      `;
-
-      document.getElementById("output").innerHTML = ausgabe;
-      document.getElementById("output").style.display = "block";
-    }
-  </script>
+  <h1>Awareness-Konzept Tool</h1>
+  <p>Dieses Tool hilft Veranstaltenden, schnell und automatisiert geeignete Awareness-Maßnahmen für Veranstaltungen abzuleiten.</p>
+  <a class="button" href="index.html">App starten</a>
+  <footer>© 2025 Tom Keller · Bachelorarbeit</footer>
 </body>
 </html>
